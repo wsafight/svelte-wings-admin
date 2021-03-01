@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
@@ -76,6 +77,7 @@ const config = {
     extensions: [".mjs", ".js", ".svelte", '.tsx', '.ts'],
   },
   plugins: [
+    new webpack.ids.HashedModuleIdsPlugin(),
     ...getHtmlModule(),
     new BundleAnalyzerPlugin({
       analyzerMode: "static",

@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 const glob = require("glob");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 function getEntry() {
   const entry = {};
@@ -34,8 +35,8 @@ const config = {
   entry: getEntry(),
   output: {
     path: path.join(__dirname, "dist"),
-    filename: "[name].[contenthash].js",
-    chunkFilename: "[id].[contenthash].js",
+    filename: "./[name]/[name].[contenthash].js",
+    chunkFilename: "./[name]/[id].[contenthash].js",
   },
   module: {
     rules: [
@@ -70,6 +71,7 @@ const config = {
       analyzerMode: "static",
       openAnalyzer: false,
     }),
+    new CleanWebpackPlugin(),
   ],
   optimization: {
     runtimeChunk: "single",

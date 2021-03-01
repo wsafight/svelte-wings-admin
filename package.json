@@ -12,7 +12,8 @@
     "build-prod": "webpack --mode production"
   },
   "dependencies": {
-    "tailwindcss": "^2.0.3"
+    "tailwindcss": "^2.0.3",
+    "@roxi/routify": "^2.12.12"
   },
   "devDependencies": {
     "webpack": "^5.24.2",

@@ -35,8 +35,8 @@ const config = {
   entry: getEntry(),
   output: {
     path: path.join(__dirname, "dist"),
-    filename: "./[name]/[name].[contenthash].js",
-    chunkFilename: "./[name]/[id].[contenthash].js",
+    filename: "./[name]/main.[contenthash].js",
+    chunkFilename: "./dynamic/[id].[contenthash].js",
   },
   module: {
     rules: [

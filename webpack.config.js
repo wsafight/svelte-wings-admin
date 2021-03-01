@@ -8,8 +8,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 function getEntry() {
   const entry = {};
   //读取src目录所有page入口
-  glob.sync("./src/modules/*/index.js").forEach(function (filePath) {
-    const name = filePath.match(/\/modules\/(.+)\/index.js/)[1];
+  glob.sync("./src/modules/*/index.ts").forEach(function (filePath) {
+    const name = filePath.match(/\/modules\/(.+)\/index.ts/)[1];
     entry[name] = filePath;
   });
   return entry;
@@ -18,8 +18,8 @@ function getEntry() {
 function getHtmlModule() {
   const outHtml = [];
   //读取src目录所有page入口
-  glob.sync("./src/modules/*/index.js").forEach(function (filePath) {
-    const name = filePath.match(/\/modules\/(.+)\/index.js/)[1];
+  glob.sync("./src/modules/*/index.ts").forEach(function (filePath) {
+    const name = filePath.match(/\/modules\/(.+)\/index.ts/)[1];
     outHtml.push(
       new HtmlWebpackPlugin({
         appMountId: "app",
@@ -48,6 +48,11 @@ const config = {
         },
       },
       {
+        test: /\.ts(x)?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/
+      },
+      {
         test: /\.css$/,
         use: [
           "style-loader",
@@ -63,7 +68,7 @@ const config = {
     ],
   },
   resolve: {
-    extensions: [".mjs", ".js", ".svelte"],
+    extensions: [".mjs", ".js", ".svelte", '.tsx', '.ts'],
   },
   plugins: [
     ...getHtmlModule(),

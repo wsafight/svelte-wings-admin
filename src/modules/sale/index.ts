@@ -1,12 +1,12 @@
+// @ts-ignore
 import App from "../../App.svelte";
 
-const index = new App({
+const Sale = new App({
   target: document.body,
   props: {
     name: "sale world",
   },
 });
 
-window.app = index;
 
-export default index;
+export default Sale;

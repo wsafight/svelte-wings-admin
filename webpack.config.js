@@ -5,11 +5,15 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
 const glob = require("glob");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+const modules = glob.sync("./src/modules/*/index.ts")
+
+const fileNameRegExp = /\/modules\/(.+)\/index.ts/
+
 function getEntry() {
   const entry = {};
   //读取src目录所有page入口
-  glob.sync("./src/modules/*/index.ts").forEach(function (filePath) {
-    const name = filePath.match(/\/modules\/(.+)\/index.ts/)[1];
+  modules.forEach(function (filePath) {
+    const name = filePath.match(fileNameRegExp)[1];
     entry[name] = filePath;
   });
   return entry;
@@ -18,12 +22,13 @@ function getEntry() {
 function getHtmlModule() {
   const outHtml = [];
   //读取src目录所有page入口
-  glob.sync("./src/modules/*/index.ts").forEach(function (filePath) {
-    const name = filePath.match(/\/modules\/(.+)\/index.ts/)[1];
+  modules.forEach(function (filePath) {
+    const name = filePath.match(fileNameRegExp)[1];
     outHtml.push(
       new HtmlWebpackPlugin({
         appMountId: "app",
         filename: `./${name}/index.html`,
+        template: 'static/template.html',
         chunks: [name],
       })
     );

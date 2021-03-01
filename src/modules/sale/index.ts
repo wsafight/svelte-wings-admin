@@ -1,4 +1,3 @@
-// @ts-ignore
 import App from "../../App.svelte";
 
 const Sale = new App({

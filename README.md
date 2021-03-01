@@ -1,2 +1,3 @@
 # svelte-wings-admin
-svelte multipe-page admin
+
+svelte multiple-page admin

@@ -76,6 +76,9 @@ const config = {
   resolve: {
     extensions: [".mjs", ".js", ".svelte", '.tsx', '.ts'],
   },
+  externals: {
+    dompurify: "DOMPurify"
+  },
   plugins: [
     new webpack.ids.HashedModuleIdsPlugin(),
     ...getHtmlModule(),

@@ -1,6 +1,7 @@
 const SPECIAL_CHARS_REGEXP = /([:-_]+(.))/g;
 const MOZ_HACK_REGEXP = /^moz([A-Z])/;
 
+
 /* istanbul ignore next */
 const trim = function(string: string) {
   return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');

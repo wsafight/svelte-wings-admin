@@ -14,7 +14,8 @@
     "tailwindcss": "^2.0.3",
     "svelte-spa-router": "^3.1.0",
     "lodash.isequal": "^4.5.0",
-    "lodash.clonedeep": "^4.5.0"
+    "lodash.clonedeep": "^4.5.0",
+    "loadjs": "^4.2.0"
   },
   "devDependencies": {
     "@types/lodash.isequal": "^4.5.5",

@@ -15,7 +15,8 @@
     "svelte-spa-router": "^3.1.0",
     "lodash.isequal": "^4.5.0",
     "lodash.clonedeep": "^4.5.0",
-    "loadjs": "^4.2.0"
+    "loadjs": "^4.2.0",
+    "driver.js": "^0.9.8"
   },
   "devDependencies": {
     "@types/lodash.isequal": "^4.5.5",
